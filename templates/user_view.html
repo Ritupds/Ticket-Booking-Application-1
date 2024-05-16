@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='mystyle.css') }}">
+    <title>Venue and Show list for User</title>
+</head>
+<body>
+    <table>
+        <caption>Venue And Shows</caption>
+    
+        <br> <br>
+    
+        <table>
+            <caption>Venue List For Shows</caption>
+            <thead>
+                <tr> 
+                    <th> SNo </th>
+                    <th>Venue</th>
+                    <th>Place</th>
+                    <th>City</th>
+                    <th>Capacity</th>
+                    <th>Shows</th>
+                   
+                </tr>
+                
+            </thead>
+            <tbody>
+                {% for one in all %}
+                <tr>
+                    <td> {{one['venue_id']}} </td>
+                    <td> {{one['venue_name']}} </td>
+                    <td> {{one['venue_place']}} </td>
+                    <td> {{one['venue_city']}} </td>
+                    <td> {{one['venue_capacity']}} </td>
+                    <td>
+                        <ul>
+                            {% for show in one.shows %}
+                                <li><a href="{{ url_for('view_shows', show_id=show.show_id) }}">{{ show.show_name }}</a></li>
+                                <li><a href="/book_show/{{ show.show_id }}">Book Now</a></li>
+                                <br> <br>
+
+                                
+                            {% endfor %}
+                        </ul>
+                </tr>
+                {% endfor %}
+        </tbody>
+    </table>
+
+    
+    
+    
+</body>
+</html>

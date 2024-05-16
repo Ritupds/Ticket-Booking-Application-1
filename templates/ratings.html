@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rating</title>
+</head>
+<body>
+    <h1>Ratings</h1>
+ 
+      <h1>Rate Venues and Shows</h1>
+    
+      <form method="POST" action="{{ url_for('ratings') }}">
+
+        <label for="user_id">Username</label>
+        <input type="text" id="user_id" name="user_id" value="{{ user.user_id }}">{{ user.user_id }}
+        
+        <label for="venue_id">Select Venue:</label>
+        <select name="venue_id">
+          {% for venue in venues %}
+            <option value="{{ venue.venue_id }}">{{ venue.venue_name }}</option>
+          {% endfor %}
+        </select>
+    
+        <br>
+    
+        <label for="show_id">Select Show:</label>
+        <select name="show_id">
+          {% for show in shows %}
+            <option value="{{ show.show_id }}">{{ show.show_name }}</option>
+          {% endfor %}
+        </select>
+    
+        <br>
+    
+        <label for="rating">Rating:</label>
+        <select name="rating">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+    
+        <br>
+    
+        <button type="submit">Submit Rating</button>
+      </form>
+    
+</body>
+</html>

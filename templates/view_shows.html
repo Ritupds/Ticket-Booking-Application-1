@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Details</title>
+</head>
+<body>
+
+
+    <table>
+        <caption>Show List For Venues</caption>
+        <thead>
+            <tr> 
+                <th> SNo </th>
+                <th>Show</th>
+                <th>Rating</th>
+                <th>Genre</th>
+                <th>Price</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+                <th>Available Seats</th>
+                
+                
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for show in all%}
+            <tr>
+                <td> {{ show.show_id }} </td>
+                <td> {{ show.show_name }} </td>
+                <td> {{ show.show_rating }} </td>
+                <td> {{ show.show_genre }}</td>
+                <td> {{ show.show_price }} </td>
+                <td> {{ show.start_time }}</td>
+                <td> {{ show.end_time }}</td>
+                <td> {{ show.available_seats }}</td>
+                
+                
+                
+                
+            </tr>
+            {% endfor %}
+
+            
+        </tbody>
+    </table>
+    
+</body>
+</html>

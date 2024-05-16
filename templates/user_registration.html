@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User_Register</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='mystyle.css') }}">
+    
+
+</head>
+<body> 
+
+    <div class="center">
+        <h1>Register Here</h1>
+        <form method= 'post' action ='/user_registration'>
+            
+
+            <div class="txt_field">
+                <label for username>Enter Name</label>
+                <input type="text" id="Username" name = "user_name" required>
+            </div>
+            <div class="email">
+                <label for useremail>Enter Email</label>
+                <input type="text" id="Useremail" name="user_email" required >
+                
+            </div>
+            <div class="txt_field">
+                <label for password>Enter Password</label>
+                <input type="password" id="password" name="user_password" required>
+            </div>
+            <!--<div class="txt_field">
+                <label for password>Confirm Password</label>
+                <input type="password" id="password" name="confirm_password" required>
+            </div>-->
+            
+            <input type="Submit" value="Submit">
+            
+                
+        
+            
+            
+            
+        </form>
+    </div>
+    
+</body>
+</html>

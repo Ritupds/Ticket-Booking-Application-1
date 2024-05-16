@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    /* width */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #888;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+    </style>
+    <title>Admin Dasboard</title>
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='mystyle.css') }}">
+
+    
+
+ 
+
+</head>
+
+
+<body>
+    <nav class="navbar navbar-default">
+        <ul class="nav navbar-nav">
+            <li><a href="/add_venues">CreateVenue</a></li>
+            <li><a href="/add_shows">CreateShow</a></li>
+            <li><a href="/summery">Summary</a></li>
+            <li><a href="/admin_logout">Logout</a></li>
+        </ul>
+        
+    </nav>
+
+    <h1> Welcome to Admin Dashboard</h1>
+
+ 
+    <table>
+        <caption>Venue List For Shows</caption>
+        <thead>
+            <tr> 
+                <th> SNo </th>
+                <th>Venue</th>
+                <th>Place</th>
+                <th>City</th>
+                <th>Capacity</th>
+                <th>Shows</th>
+                <th>Edit</th>
+                <th>Remove</th>
+            </tr>
+            
+        </thead>
+        <tbody>
+            {% for one in all %}
+            <tr>
+                <td> {{one['venue_id']}} </td>
+                <td> {{one['venue_name']}} </td>
+                <td> {{one['venue_place']}} </td>
+                <td> {{one['venue_city']}} </td>
+                <td> {{one['venue_capacity']}} </td>
+                <td>
+                    <ul>
+                        {% for show in one.shows %}
+                        <li><a href="{{ url_for('view_shows', show_id=show.show_id) }}">{{ show.show_name }}</a>
+
+                            <li><a href="/show/{{ show.show_id }}/update">Update</a></li>
+                            <!--<from method="POST" action="/show/{{ show.show_id }}/update">
+                                <input type="hidden" name = "show_id" value = "{{ show.id }}">
+                                <button type="submit" class="btn btn-link">Update</button>
+                            </from>-->
+                            
+                            
+                            <form method="POST" action="/remove_show/{{ show.show_id }}">
+                                <input type="hidden" name="show_id" value="{{ show.id }}">
+                                <button type="submit" class="btn btn-link" onclick="if (!confirm('Are you sure?')) { return false}"><span>Delete show</span></button>
+                                
+                            </form>
+                        </li>
+
+                        {% endfor %}
+                      </ul>
+                </td>
+
+                <td>
+                    <form method="GET" action="{{ url_for('edit_venue', venue_id=one.venue_id) }}">
+                        <button type="submit" class="btn btn-primary">Edit Venue</button>
+                    </form>
+                </td>
+
+                <td>
+                    <form method="post" action="/remove_venue/{{ one.venue_id }}">
+                        <input type="hidden" name="venue_id" value="{{ one.venue_id }}">
+                        <button type="submit" class="btn btn-link" onclick="if (!confirm('Are you sure?')) { return false}"><span>Delete venue</span></button>
+                    </form>
+                  
+                </td>
+                
+
+            </tr>
+            {% endfor %}
+            
+        </tbody>
+    </table>
+
+</head>
+
+    
+</body>
+</html>

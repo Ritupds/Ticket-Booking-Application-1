@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='mystyle.css') }}">
+    <title>Shows</title>
+</head>
+<body>
+    <div class="center">
+        <caption>Create New Show</caption>
+        <form method="POST" action = '/add_shows'>
+            <div class="txt_field">
+                <label for="showname">Showname</label>
+                <input type="text" id="showname" name="show_name" required>
+            </div>
+            <div class="number">
+                <label for="Rating">Rating</label>
+                <input type="number" id="rating" name="show_rating" required>
+            </div>
+            <div class="number">
+                <label for="time">Start Time</label>
+                <input type="time" id="starttime" name="start_time" required>
+            </div>
+            <div class="number">
+                <label for="time">End Time</label>
+                <input type="time" id="endtime" name="end_time" required>
+            </div>
+            
+            
+
+            <div class="txt_field">
+                <label for="Showgenre">Showgenre</label>
+                <input type="text" id="showgenre" name="show_genre" required>
+            </div>
+
+            <div class="number">
+                <label for="Price">Price</label>
+                <input type="number" id="showprice" name="show_price" required>
+            
+           </div>
+            <div class="number"></div>
+                <label for="available_seats">Available Seats</label>
+                <input type="number" id="available_seats" name="available_seats" required>
+            </div>
+            <div class="text-center mt-3">
+                <input type ="submit" value = "Add Show" />
+            </div>
+           <br><br>
+
+
+        <label>Select Venue</label>
+           <select name = "venue_id">
+                {% for one in venues %}
+
+                <option value="{{one['venue_id']}}"> {{one['venue_name']}} </option>
+
+                {% endfor %}
+           </select> <br> <br>
+
+
+            <input type ="submit" value = "Add Show" />
+
+        </form>
+    </div>
+</body>
+</html>

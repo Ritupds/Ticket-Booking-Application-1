@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* width */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+        }
+
+         /* Handle on hover */
+         ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    </style>
+    
+    <title>User Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='mystyle.css') }}">
+
+</head>
+<body>
+        <nav class="navbar navbar-default">
+            <ul class="nav navbar-nav">
+                <li><a href="{{ url_for('user_logout') }}">Logout</a></li>
+                <li><a href="{{ url_for('ratings') }}">Give your ratings</a></li>
+                <li><a href="#">Page 3</a></li>
+            </ul>
+            
+        </nav>
+
+
+    <form action="/search/venues" method="get">
+        <label for="venue_search_query">Search for venues:</label>
+        <input type="text" id="venue_search_query" name="venue_search_query" required>
+        <button type="submit">Search</button>
+    </form>
+    
+    <form action="/search/shows" method="get">
+        <label for="show_search_query">Search for shows:</label>
+        <input type="text" id="show_search_query" name="show_search_query" required>
+        <button type="submit">Search</button>
+    </form>
+
+
+    <h1>Get your Tickets now!!!</h1>
+    
+    <ol>
+        
+    <table>
+
+        <caption>Venue List For Shows</caption>
+        <thead>
+            <tr> 
+                <th> SNo </th>
+                <th>Venue</th>
+                <th>Place</th>
+                <th>City</th>
+                <th>Capacity</th>
+                <th>Shows</th>
+                         
+            </tr>
+                    
+        </thead>
+            <tbody>
+                {% for one in all %}
+                <tr>
+                    <td> {{one['venue_id']}} </td>
+                    <td> {{one['venue_name']}} </td>
+                    <td> {{one['venue_place']}} </td>
+                    <td> {{one['venue_city']}} </td>
+                    <td> {{one['venue_capacity']}} </td> 
+                
+                    <td>   
+                        <ul>
+                            {% for show in one.shows %}
+                            <li><a href="{{ url_for('view_shows', show_id=show.show_id) }}">{{ show.show_name }}</a></li>
+                                    <li><a href="/book_show/{{ show.show_id }}" class="btn btn-primary">Book Now</a></li>
+                            {% endfor %}
+                        </ul>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+       
+      
+        
+
+        {% for user in user %}
+            <a href="{{ url_for('view_ratings', user_id=user.user_id) }}">view ratings</a>
+        {% endfor %}
+        
+
+    <br> <br>
+
+        
+        
+  
+</body>
+</html>

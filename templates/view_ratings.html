@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ratings</title>
+</head>
+<body>
+    <h1>Ratings</h1>
+    <form method="POST" action="{{ url_for('view_ratings', user_id=user.user_id) }}">
+    <table>
+
+        <thead>
+            <tr>
+                <th>User</th>
+                <th>Venue</th>
+                <th>Show</th>
+                <th>Rating</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for rating in ratings %}
+            <tr>
+                <td>{{ rating.user_name }}</td>
+                <td>{{ rating.venue_name }}</td>
+                <td>{{ rating.show_name }}</td>
+                <td>{{ rating.rating }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </form>
+</body>
+</html>

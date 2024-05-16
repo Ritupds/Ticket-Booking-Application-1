@@ -1,0 +1,13 @@
+Check list
+
+1. Seperate login form for user and admin
+2. Admin can create, edit and delete venues and shows
+3. Allocate venues while creating shows
+4. Different pricing for each show
+5. Ability to search venues based on location.
+6. Ability to search shows based on show names.
+7. Show the shows available for a given timeframe.
+8. Ability to book multiple tickets for a show at a given venue.
+9. Ability to stop takings bookings in case of a houseful.
+10. Basic home view for a venue.
+

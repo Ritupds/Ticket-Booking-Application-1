@@ -1,0 +1,162 @@
+/* Styles for admin.html */
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace;
+    background: linear-gradient(120deg, beige);
+    height: 120vh;
+    overflow: hidden;
+}
+
+
+.center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 320px;
+    height: 400px;
+    background: lightgray;
+    border-radius: 10px;
+    box-sizing: border-box;
+    border-color: black;
+    padding: 10px 20px ;
+}
+
+.center h1{
+    padding: 0px 10px 20px 0;
+    text-align: center;
+    border-bottom: 1px solid snow;
+
+}
+
+.center form{
+    padding: 0 30px;
+    box-sizing: border-box;
+
+}
+form .txt_field{
+    position: relative;
+    
+    margin: 10px 0;
+}
+input[type="submit"]{
+    position: relative;
+    width: 100%;
+    height: 20px;
+    border: 1px solid;
+    font-size: 15px;
+    color: skyblue;
+    background-color: blue;
+}
+
+/* styles for dasboard.html */
+
+.h1{
+    font-family:'Courier New', Courier, monospace;
+    font-size: 20px;
+    text-align: left;
+}
+caption{
+    display: table-caption;
+    text-align:center;
+}
+
+
+
+
+
+table.left {
+    float: left;
+    border-collapse: collapse;
+    margin-top: auto;
+    width: 50%;
+    position: absolute;
+    left: 5%;
+    border: 1px solid black;
+
+}
+
+table.right {
+    float: right;
+
+}
+thead th{
+    background-color: lightblue;
+    border: 1px solid;
+    padding: 8px;
+    font-weight: 500;
+    text-align: center;
+}
+tbody td{
+    border: 1px solid ;
+    padding: 8px;
+    text-align: center;
+}
+
+.form-container {
+    font: weight 250px;
+    float:right;
+    left: 80px;
+    
+    width: 300px;
+    height:60px;
+    padding:10px 25px;
+    box-sizing: border-box;
+    
+    
+
+}
+.button {
+    background-color: skyblue;
+    border: 1px solid;
+    padding: 15px 30px;
+    text-align: center;
+    font-size: 16px;
+    width: 100%;
+
+}
+
+
+/* #stylesforlinks
+a:link, a:visited {
+    background-color: darkslateblue;
+    color:black;
+    border: 1px solid;
+    padding: 15px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+} */
+
+/* a:hover, a:active {
+    background-color: lightslategray;
+} */
+
+nav {
+    background-color: #2565ae;
+    height: 30px;
+    padding: 10px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display:flex;
+
+}
+
+li {
+    margin: 0 6px ;
+}
+
+a {
+    display: inline-block;
+    background-color: #2565ae;
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    padding: 8px;
+}
+
